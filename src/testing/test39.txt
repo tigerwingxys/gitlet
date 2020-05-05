@@ -1,0 +1,10 @@
+del *.txt
+java gitlet.Main init
+copy ../src/testing/src/wug.txt wug.txt
+java gitlet.Main add wug.txt
+java gitlet.Main commit "version 1 of wug.txt"
+copy ../src/testing/src/notwug.txt wug.txt
+java gitlet.Main add wug.txt
+java gitlet.Main commit "version 2 of wug.txt"
+java gitlet.Main log
+java checkout 

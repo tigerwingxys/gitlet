@@ -1,0 +1,64 @@
+del *.txt
+java gitlet.Main init
+copy ../src/testing/src/wug.txt f.txt
+copy ../src/testing/src/notwug.txt g.txt
+java gitlet.Main add f.txt
+java gitlet.Main add g.txt
+java gitlet.Main commit "Two files"
+
+java gitlet.Main branch other
+copy ../src/testing/src/wug2.txt h.txt
+java gitlet.Main add h.txt
+java gitlet.Main rm g.txt
+java gitlet.Main commit "Add h.txt and remove g.txt"
+java gitlet.Main checkout other
+
+java gitlet.Main rm f.txt
+copy ../src/testing/src/wug3.txt k.txt
+java gitlet.Main add k.txt
+java gitlet.Main commit "Add k.txt and remove f.txt"
+java gitlet.Main log
+#check message is ok, set other's twofile to TWO
+
+java gitlet.Main checkout master
+java gitlet.Main log
+#check message is ok set master's addhAndRemoveh to MASTER1
+
+copy ../src/testing/src/wug.txt m.txt
+java gitlet.Main add m.txt
+
+java gitlet.Main reset $(TWO)
+java gitlet.Main status
+#check m.txt is untracked
+
+java gitlet.Main log
+#check is correct Twofiles->init
+
+java gitlet.Main checkout other
+java gitlet.Main log
+#check is correct addKremoveF->Twofiles->init
+
+java gitlet.Main checkout master
+java gitlet.Main log
+#check is correct addK Twofiles->init
+
+java gitlet.Main reset $(MASTER1)
+java gitlet.Main log
+#check is correct addHremoveG->Twofiles->init
+
+
+
+
+copy ../src/testing/src/wug.txt k.txt
+java gitlet.Main merge other
+
+del k.txt
+java gitlet.Main status
+
+copy ../src/testing/src/wug.txt k.txt
+java gitlet.Main add k.txt
+java gitlet.Main merge other
+java gitlet.Main rm k.txt
+del k.txt
+java gitlet.Main status
+

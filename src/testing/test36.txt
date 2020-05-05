@@ -1,0 +1,36 @@
+del *.txt
+java gitlet.Main init
+copy ../src/testing/src/wug.txt f.txt
+copy ../src/testing/src/notwug.txt g.txt
+java gitlet.Main add f.txt
+java gitlet.Main add g.txt
+java gitlet.Main commit "Two files"
+
+java gitlet.Main branch other
+copy ../src/testing/src/wug2.txt h.txt
+java gitlet.Main add h.txt
+java gitlet.Main rm g.txt
+java gitlet.Main commit "Add h.txt, remove g.txt"
+java gitlet.Main checkout other
+java gitlet.Main merge other
+
+java gitlet.Main rm f.txt
+copy ../src/testing/src/wug3.txt k.txt
+java gitlet.Main add k.txt
+java gitlet.Main commit "Add k.txt and remove f.txt"
+java gitlet.Main checkout master
+java gitlet.Main merge foobar
+
+copy ../src/testing/src/wug.txt k.txt
+java gitlet.Main merge other
+
+del k.txt
+java gitlet.Main status
+
+copy ../src/testing/src/wug.txt k.txt
+java gitlet.Main add k.txt
+java gitlet.Main merge other
+java gitlet.Main rm k.txt
+del k.txt
+java gitlet.Main status
+

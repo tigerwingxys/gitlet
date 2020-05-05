@@ -1,0 +1,19 @@
+Usage: java gitlet.Main Command [args], supported commands as below:
+
+  init                    Creates a new Gitlet version-control system in the current directory.
+  add [file name]         Adds a copy of the file to staging area.
+  commit [message]        Saves a snapshot of files in the current commit.
+  rm [file name]          Remove a file from repository.
+  log                     Displays information about each commit until the initial commit.
+  global-log              Displays information about all commits.
+  find [commit message]   Prints out the ids of all commits that have the given commit message.
+  status                  Displays branches, staged files, removed files, etc.
+  checkout [args]         Checkout files, args has 3 use cases:
+           -- [file name]
+           [commit id] -- [file name]
+           [branch name]
+  branch [branch name]    Creates a new branch with the given name.
+  rm-branch [branch name] Deletes the branch with the given name. 
+  reset [commit id]       Checks out all the files tracked by the given commit.
+  merge [branch name]     Merges files from the given branch into the current branch.
+  help or ?               This text.

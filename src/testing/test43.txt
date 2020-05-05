@@ -1,0 +1,24 @@
+rm -Force .gitlet
+del *.txt
+
+java gitlet.Main init
+java gitlet.Main branch given
+java gitlet.Main checkout given
+copy ../src/testing/src/wug.txt f.txt
+java gitlet.Main add f.txt
+java gitlet.Main commit "Add f.txt containing wug.txt"
+java gitlet.Main branch B
+java gitlet.Main checkout master
+copy ../src/testing/src/notwug.txt f.txt
+java gitlet.Main add f.txt
+java gitlet.Main commit "Add f.txt containing notwug.txt"
+java gitlet.Main checkout given
+java gitlet.Main merge master
+
+copy ../src/testing/src/notwug.txt f.txt
+java gitlet.Main add f.txt
+java gitlet.Main commit "Reset f to notwug.txt"
+java gitlet.Main rm f.txt
+java gitlet.Main commit "given now empty"
+
+
