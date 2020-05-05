@@ -3,7 +3,6 @@ package gitlet;
 import java.io.File;
 import java.io.Serializable;
 
-import com.sun.tools.classfile.Dependency.Finder;
 
 class Config {
 	static final String CMD_ADD = "A";
@@ -27,7 +26,7 @@ class Config {
 	static final String INIT_COMMIT_ID = "0000000000000000000000000000000000000000";
 	static final String MASTER_STRING = "master";
 	static final String CURRENT_COMMIT_STRING = "current_commit";
-	static final String MERGE_STRING = "<<<<<<< HEAD\n%s=======\n%s>>>>>>>";
+	static final String MERGE_STRING = "<<<<<<< HEAD\n%s=======\n%s>>>>>>>\n";
 	/** Folders and files used in .gitlet. */
 	static final File BLOBS_FOLDER = new File(GITLET_FOLDER, "blobs");
 	static final File COMMIT_FOLDER = new File(GITLET_FOLDER, "commits");
